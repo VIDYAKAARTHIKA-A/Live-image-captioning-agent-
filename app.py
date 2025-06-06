@@ -1,73 +1,58 @@
-import streamlit as st
-import torch
-from transformers import BlipProcessor, BlipForConditionalGeneration
-from PIL import Image
-import pyttsx3
 import cv2
+import torch
+from PIL import Image
+from transformers import BlipProcessor, BlipForConditionalGeneration
+import pyttsx3
 import time
 
-# Load model and processor
-@st.cache_resource
-def load_model():
-    processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-    model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-    return processor, model, device
+# Load BLIP
+processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
-processor, model, device = load_model()
+# Initialize text-to-speech
+tts_engine = pyttsx3.init()
+tts_engine.setProperty('rate', 150)
 
-# Image captioning function
-def generate_caption(image: Image.Image):
-    inputs = processor(images=image, return_tensors="pt")
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-    output_ids = model.generate(**inputs, max_length=64, num_beams=5)
-    caption = processor.batch_decode(output_ids, skip_special_tokens=True)[0]
-    return caption.strip()
+# Start camera
+cap = cv2.VideoCapture(0)
 
-# Text-to-speech function
-def speak(text):
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 150)
-    engine.say(text)
-    engine.runAndWait()
+last_caption = ""
+last_time = time.time()
 
-# Streamlit UI
-st.title("👓 Live Image Captioning Assistant for the Visually Impaired")
-st.markdown("Capture webcam images automatically and get real-time spoken scene descriptions.")
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to grab frame")
+        break
 
-# User can choose duration and frequency
-run_time = st.slider("Run duration (seconds)", 10, 120, 30)
-interval = st.slider("Caption frequency (seconds)", 1, 10, 2)
+    # Display the video feed
+    cv2.imshow('Live Feed - Press q to quit', frame)
 
-if st.button("🎥 Start Auto-Capture"):
-    st.info("Auto-captioning started. Press 'Stop' in the terminal to exit.")
-    cap = cv2.VideoCapture(0)
-    frame_display = st.empty()
-    caption_display = st.empty()
+    # Run captioning every 2 seconds
+    if time.time() - last_time > 2:
+        img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        pil_img = Image.fromarray(img_rgb)
 
-    start_time = time.time()
+        # Generate caption
+        inputs = processor(pil_img, return_tensors="pt")
+        out = model.generate(**inputs)
+        caption = processor.decode(out[0], skip_special_tokens=True)
 
-    while time.time() - start_time < run_time:
-        ret, frame = cap.read()
-        if not ret:
-            st.error("Failed to grab frame.")
-            break
+        if caption != last_caption:
+            print("Caption:", caption)
+            tts_engine.say(caption)
+            tts_engine.runAndWait()
+            last_caption = caption
 
-        # Convert OpenCV image to PIL format
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        pil_image = Image.fromarray(frame_rgb)
+        last_time = time.time()
 
-        # Display current frame
-        frame_display.image(pil_image, caption="Live Frame", use_column_width=True)
+    # Quit with 'q' key
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-        # Generate and display caption
-        caption = generate_caption(pil_image)
-        caption_display.success(f"📝 Caption: {caption}")
-        speak(caption)
+cap.release()
+cv2.destroyAllWindows()
 
-        time.sleep(interval)
 
-    cap.release()
-    st.success("✅ Auto-captioning session completed.")
+
 
