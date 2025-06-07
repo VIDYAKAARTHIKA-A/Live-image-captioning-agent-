@@ -52,7 +52,7 @@ def generate_caption(frame):
         conf = float(box.conf[0])
         label = results.names[cls_id]
 
-        if conf < 0.5:
+        if conf < 0.3:
             continue
 
         
