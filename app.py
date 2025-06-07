@@ -1,5 +1,3 @@
-
-
 import tkinter as tk
 from tkinter import Label, Button
 from PIL import Image, ImageTk
@@ -107,11 +105,6 @@ def generate_caption(frame):
             if word and word not in detected_words:
                 general_labels.append(word)
     
-
-
-
-
-
 def update_frame():
     global cap, running, last_time
 
