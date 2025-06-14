@@ -1,5 +1,9 @@
 **VISION MATE: SCENE CAPTIONING FOR THE VISUALLY IMPAIRED**
 
+
+![image](https://github.com/user-attachments/assets/d777dc14-adfd-4c0d-8548-d61358e4e67b)
+
+
 An assistive AI-powered desktop/mobile application that captures real-world scenes using your camera and narrates them in real-time — with special emphasis on traffic and general safety. 
 
 **OVERVIEW:**
