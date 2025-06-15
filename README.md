@@ -1,4 +1,4 @@
-**VISION MATE: SCENE CAPTIONING FOR THE VISUALLY IMPAIRED**
+**VISION MATE: SCENE CAPTIONING FOR THE VISUALLY IMPAIRED:**
 
 
 VisionMate is an intelligent vision assistant which helps visually impaired individuals understand their surroundings. It captures scenes through a webcam or mobile camera, identifies key objects (e.g., people, vehicles, signals), and generates natural language descriptions with voice narration.
@@ -26,7 +26,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 ---
 
-**TECH STACK**
+**TECH STACK:**
 
 
 
@@ -35,13 +35,13 @@ This project is especially designed to assist during road-crossing or traffic na
 ---
 
 
-**PROJECT WORKFLOW**
+**PROJECT WORKFLOW:**
 
 ![image](https://github.com/user-attachments/assets/d777dc14-adfd-4c0d-8548-d61358e4e67b)
 
 ---
 
-**WHY USE BLIP?**
+**WHY USE BLIP?:**
 
 🔍 Highly Accurate Captions
 
@@ -58,19 +58,29 @@ This project is especially designed to assist during road-crossing or traffic na
 ---
 
 
-**WHY USE YOLO(You only look once)?**
+**WHY USE YOLO(You only look once)?:**
 
 
 BLIP provides a high-level, descriptive caption, but it doesn’t localize objects or give bounding boxes. YOLO complements BLIP by providing precise detection and localization of individual objects within the frame, which can be essential for certain applications like tracking, interaction, or further analysis.
 
 ---
 
+**SCREENSHOTS:**
+
+![image](https://github.com/user-attachments/assets/937b88ba-991d-4b93-9eb3-57fed8294ec8)
+
+![image](https://github.com/user-attachments/assets/7b5bdb0e-80f9-4df4-b3b5-bc745c418a67)
+
+![image](https://github.com/user-attachments/assets/235865c6-766b-493a-b737-2ce1b16d2095)
+
+
+
 **FURTHER ENHANCEMENTS:**
 
 
 * The model should generate more accurate captions for different types of objects.  
 * The model should work efficiently in noisy environments.  
-* The app should be deployed on mobile.
+* The app should be deployed on mobile using buildozer. 
 
 ---
 
@@ -81,26 +91,25 @@ Clone the repo:
 `git clone https://github.com/yourusername/live-image-captioning-assistant.git`  
 `cd live-image-captioning-assistant`
 
-Create a virtual environment:  
-`python -m venv venv`  
-`source venv/bin/activate`  # Linux/macOS  
-`venv\Scripts\activate`   # Windows
+Create a conda environment  
+`conda create --name captioning_env`  
+`conda activate captioning_env` 
 
 Install dependencies:  
 `pip install -r requirements.txt`
 
-For webcam live captioning:  
-`python main.py`
-
-For Flask:  
+Run the flask app:  
+`cd server_backend `
 `python app.py`
+
+Run the app:
+`cd mobile_app`
+`python main.py`
 
 ---
 
 
 **REFERENCES:**
-
-
 
 BLIP: https://github.com/salesforce/BLIP
 
