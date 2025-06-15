@@ -78,21 +78,26 @@ BLIP provides a high-level, descriptive caption, but it doesn’t localize objec
 
 
 Clone the repo:  
+
 `git clone https://github.com/yourusername/live-image-captioning-assistant.git`  
 `cd live-image-captioning-assistant`
 
-Create a conda environment  
+Create a conda environment :
+
 `conda create --name captioning_env`  
 `conda activate captioning_env` 
 
 Install dependencies:  
+
 `pip install -r requirements.txt`
 
 Run the flask app:  
+
 `cd server_backend `
 `python app.py`
 
 Run the app:
+
 `cd mobile_app`
 `python main.py`
 
