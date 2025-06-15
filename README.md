@@ -32,6 +32,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 
 **WHY USE BLIP?** 
+
 🔍 Highly Accurate Captions
 ⚡ Fast Inference for Real-Time Use
 🧠 Strong Generalization
@@ -41,30 +42,33 @@ No need to build vocabulary, train LSTM, or manage BLEU scoring — BLIP works o
 🗣️ Natural Language Output
 
 **FURTHER ENHANCEMENTS:**
-The model should generate more accurate captions for different types of objects. 
-The model should work efficiently in noisy environments.
-The app should be deployed on mobile.
+
+* The model should generate more accurate captions for different types of objects. 
+* The model should work efficiently in noisy environments.
+* The app should be deployed on mobile.
 
 **SETUP AND INSTALLATION**
+
 Clone the repo:
-git clone https://github.com/yourusername/live-image-captioning-assistant.git
-cd live-image-captioning-assistant
+`git clone https://github.com/yourusername/live-image-captioning-assistant.git`
+`cd live-image-captioning-assistant`
 
 Create a virtual environment:
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
+`python -m venv venv`
+`source venv/bin/activate`  # Linux/macOS
+`venv\Scripts\activate`   # Windows
 
 Install dependencies:
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 For webcam live captioning:
-python main.py
+`python main.py`
 
 For Flask:
-python app.py
+`python app.py`
 
 **REFERENCES:**
+
 BLIP: https://github.com/salesforce/BLIP
 
 YOLOv8 (Ultralytics): https://github.com/ultralytics/ultralytics
