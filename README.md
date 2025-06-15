@@ -6,7 +6,7 @@ VisionMate is an intelligent vision assistant which helps visually impaired indi
 
 This project is especially designed to assist during road-crossing or traffic navigation, where awareness of vehicles and potential hazards is critical. It also detects dangerous situations and gives alerts.
 
----
+
 
 **FEATURES:**
 
@@ -26,7 +26,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 ⚙️ Works as a desktop GUI or can be extended to mobile
 
----
+
 
 **TECH STACK**
 
@@ -34,7 +34,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 🐍 Python 🔦 PyTorch 📸 OpenCV 🖼️ Kivy 🌐 Flask
 
----
+
 
 **PROJECT WORKFLOW**
 
@@ -42,7 +42,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 ![image](https://github.com/user-attachments/assets/d777dc14-adfd-4c0d-8548-d61358e4e67b)
 
----
+
 
 **WHY USE BLIP?**
 
@@ -60,7 +60,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 🗣️ Natural Language Output
 
----
+
 
 **WHY USE YOLO(You only look once)?**
 
@@ -68,7 +68,7 @@ This project is especially designed to assist during road-crossing or traffic na
 
 BLIP provides a high-level, descriptive caption, but it doesn’t localize objects or give bounding boxes. YOLO complements BLIP by providing precise detection and localization of individual objects within the frame, which can be essential for certain applications like tracking, interaction, or further analysis.
 
----
+
 
 **FURTHER ENHANCEMENTS:**
 
@@ -78,7 +78,7 @@ BLIP provides a high-level, descriptive caption, but it doesn’t localize objec
 * The model should work efficiently in noisy environments.  
 * The app should be deployed on mobile.
 
----
+
 
 **SETUP AND INSTALLATION**
 
@@ -102,7 +102,7 @@ For webcam live captioning:
 For Flask:  
 `python app.py`
 
----
+
 
 **REFERENCES:**
 
@@ -110,4 +110,5 @@ For Flask:
 
 BLIP: https://github.com/salesforce/BLIP
 
-YOLOv8
+YOLOv8 (Ultralytics): https://github.com/ultralytics/ultralytics
+
