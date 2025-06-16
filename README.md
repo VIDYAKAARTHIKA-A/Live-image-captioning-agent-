@@ -64,6 +64,11 @@ This project is especially designed to assist during road-crossing or traffic na
 BLIP provides a high-level, descriptive caption, but it doesn’t localize objects or give bounding boxes. YOLO complements BLIP by providing precise detection and localization of individual objects within the frame, which can be essential for certain applications like tracking, interaction, or further analysis.
 
 ---
+
+**OUTPUT:**
+[Watch Demo Video](https://github.com/VIDYAKAARTHIKA-A/Live-image-captioning-agent-/blob/main/LIVE_IMAGE_CAPTIONING_FINAL_DEMO.mp4)
+
+
   
 **FURTHER ENHANCEMENTS:**
 
