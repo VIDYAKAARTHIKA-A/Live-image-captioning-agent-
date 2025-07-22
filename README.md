@@ -1,7 +1,7 @@
-**VISION MATE: SCENE CAPTIONING FOR THE VISUALLY IMPAIRED:**
+** SCENE CAPTIONING FOR THE VISUALLY IMPAIRED:**
 
 
-VisionMate is an intelligent vision assistant which helps visually impaired individuals understand their surroundings. It captures scenes through a webcam or mobile camera, identifies key objects (e.g., people, vehicles, signals), and generates natural language descriptions with voice narration.
+It is an intelligent vision assistant which helps visually impaired individuals understand their surroundings. It captures scenes through a webcam or mobile camera, identifies key objects (e.g., people, vehicles, signals), and generates natural language descriptions with voice narration.
 
 This project is especially designed to assist during road-crossing or traffic navigation, where awareness of vehicles and potential hazards is critical. It also detects dangerous situations and gives alerts.
 
